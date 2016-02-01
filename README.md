@@ -17,6 +17,12 @@ docker run -v $(pwd)/data:/data barwell/get-iplayer -h
 # Search for 'news'
 docker run -v $(pwd)/data:/data barwell/get-iplayer news
 
-# Download program at index 1234
+# Download programme at index 1234
 docker run -v $(pwd)/data:/data barwell/get-iplayer --get 1234
+
+# Download programme with PID b06z12ab
+docker run -v $(pwd)/data:/data barwell/get-iplayer --pid b06z12ab
+
+# Download radio programme with PID b06z34cd
+docker run -v $(pwd)/data:/data barwell/get-iplayer --type radio --pid b06z34cd
 ```
