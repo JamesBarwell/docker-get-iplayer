@@ -3,10 +3,8 @@ MAINTAINER barwell
 
 RUN apk --update add \
     ffmpeg \
-    mplayer \
     openssl \
-    perl-xml-simple \
-    rtmpdump
+    perl-xml-simple
 
 RUN mkdir -p /data/output /data/config
 
