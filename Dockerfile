@@ -1,10 +1,18 @@
-FROM l3iggs/archlinux-aur
+FROM alpine:3.4
 MAINTAINER barwell
 
-RUN sudo pacman -Sy --noconfirm \
-    && sudo pacman -S --needed --noconfirm rtmpdump ffmpeg mplayer id3v2 perl-xml-simple perl-mp3-info \
-    && yaourt -S --noconfirm get_iplayer
+RUN apk --update add \
+    curl \
+    ffmpeg \
+    mplayer \
+    perl-xml-simple \
+    rtmpdump
 
-RUN sudo mkdir -p /data/output /data/config && sudo chown -R docker: /data
+WORKDIR /app
 
-ENTRYPOINT ["get_iplayer", "--profile-dir", "/data/config", "--output", "/data/output"]
+RUN curl -kLO https://raw.github.com/get-iplayer/get_iplayer/master/get_iplayer && \
+    chmod +x ./get_iplayer
+
+RUN mkdir -p /data/output /data/config
+
+ENTRYPOINT ["./get_iplayer", "--profile-dir", "/data/config", "--output", "/data/output"]
