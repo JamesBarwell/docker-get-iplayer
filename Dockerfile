@@ -16,3 +16,5 @@ RUN curl -kLO https://raw.github.com/get-iplayer/get_iplayer/master/get_iplayer 
 RUN mkdir -p /data/output /data/config
 
 ENTRYPOINT ["./get_iplayer", "--profile-dir", "/data/config", "--output", "/data/output"]
+
+CMD ["-h"]
