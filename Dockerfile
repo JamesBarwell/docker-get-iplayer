@@ -8,12 +8,16 @@ RUN apk --update add \
     perl-xml-simple \
     rtmpdump
 
+RUN mkdir -p /data/output /data/config
+
 WORKDIR /app
 
-RUN curl -kLO https://raw.github.com/get-iplayer/get_iplayer/master/get_iplayer && \
-    chmod +x ./get_iplayer
+ENV GET_IPLAYER_VERSION=2.96
 
-RUN mkdir -p /data/output /data/config
+RUN curl -L https://github.com/get-iplayer/get_iplayer/archive/v${GET_IPLAYER_VERSION}.tar.gz | tar -xvz -C /tmp && \
+    mv /tmp/get_iplayer-${GET_IPLAYER_VERSION}/get_iplayer . && \
+    rm -rf /tmp/* && \
+    chmod +x ./get_iplayer
 
 ENTRYPOINT ["./get_iplayer", "--profile-dir", "/data/config", "--output", "/data/output"]
 
