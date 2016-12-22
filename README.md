@@ -1,4 +1,6 @@
-This image can be used to run the get_iplayer script from: https://github.com/get-iplayer/get_iplayer
+Docker container for running the get_iplayer script: https://github.com/get-iplayer/get_iplayer
+
+## Configuration and output
 
 It is recommended to mount a volume into the container as /data. This will be used by the script to cache the index and store any output as follows:
 ```
