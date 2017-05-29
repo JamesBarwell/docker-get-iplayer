@@ -1,10 +1,11 @@
-FROM alpine:3.4
+FROM alpine:3.5
 MAINTAINER barwell
 
 RUN apk --update add \
     ffmpeg \
     openssl \
-    perl-xml-simple
+    perl-xml-simple \
+    perl-xml-libxml
 
 RUN mkdir -p /data/output /data/config
 
