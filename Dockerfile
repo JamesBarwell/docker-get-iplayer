@@ -4,6 +4,8 @@ MAINTAINER barwell
 RUN apk --update add \
     ffmpeg \
     openssl \
+    perl-mojolicious \
+    perl-lwp-protocol-https \
     perl-xml-simple \
     perl-xml-libxml
 
