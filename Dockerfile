@@ -20,6 +20,6 @@ RUN wget -qO- https://github.com/get-iplayer/get_iplayer/archive/v${GET_IPLAYER_
     rm -rf /tmp/* && \
     chmod +x ./get_iplayer
 
-ENTRYPOINT ["./get_iplayer", "--profile-dir", "/data/config", "--output", "/data/output"]
+ENTRYPOINT ["./get_iplayer", "--ffmpeg", "/usr/bin/ffmpeg", "--profile-dir", "/data/config", "--output", "/data/output"]
 
 CMD ["-h"]
