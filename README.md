@@ -27,4 +27,7 @@ docker run -v $(pwd)/data:/data barwell/get-iplayer --pid b06z12ab
 
 # Download radio programme with PID b06z34cd
 docker run -v $(pwd)/data:/data barwell/get-iplayer --type radio --pid b06z34cd
+
+# Download programme from iPlayer website URL
+docker run -v $(pwd)/data:/data barwell/get-iplayer --url https://www.bbc.co.uk/iplayer/episode/<id>/<name>
 ```
