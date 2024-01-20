@@ -1,5 +1,5 @@
-FROM alpine:3.17.0
-MAINTAINER barwell
+FROM alpine:3.18.5
+LABEL maintainer="barwell"
 
 RUN apk --update add \
     ffmpeg \
