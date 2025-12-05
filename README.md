@@ -31,3 +31,12 @@ docker run -v $(pwd)/data:/data barwell/get-iplayer --type radio --pid b06z34cd
 # Download programme from iPlayer website URL
 docker run -v $(pwd)/data:/data barwell/get-iplayer --url https://www.bbc.co.uk/iplayer/episode/<id>/<name>
 ```
+
+## File ownership
+
+The Docker daemon runs as root, so any downloaded files may also end up owned by the root user.
+
+You can change the user that the container runs as with the `--user` or `-u` option. In this example, the container is set to the current user's user ID and group ID:
+```
+docker run -u $(id -u):$(id -g) -v $(pwd)/data:/data barwell/get-iplayer --get 1234
+```
